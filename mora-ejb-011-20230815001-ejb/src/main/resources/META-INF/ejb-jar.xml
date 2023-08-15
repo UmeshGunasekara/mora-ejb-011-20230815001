@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ * This ejb-jar.xml comes with basic dependency requirements and create for mora-ejb-011-20230815001-ejb
+ *
+ * @Author: SLMORA
+ * @DateTime: 8/15/2023 9:55 PM
+ * <p>
+ * Version      Date            Editor              Note
+ * =====================================================================================================================
+ * 1.0          8/15/2023        SLMORA              Initial Code
+ *
+ *
+ *
+-->
+<ejb-jar
+        version="3.2"
+        xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/ejb-jar_3_2.xsd"
+>
+
+  <display-name>mora-ejb-011-20230815001-ejb </display-name>
+</ejb-jar>

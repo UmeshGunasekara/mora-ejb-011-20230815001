@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ * This persistance.xml comes with basic datasource configuration for mora-ejb-011-20230815001-common Project
+ *
+ * @Author: SLMORA
+ * @DateTime: 8/15/2023 9:55 PM
+ * <p>
+ * Version      Date            Editor              Note
+ * =====================================================================================================================
+ * 1.0          8/15/2023       SLMORA              Initial Code
+ * 1.1          8/15/2023       SLMORA              Update for Second Level Cache
+ *
+-->
+<persistence
+        xmlns="https://jakarta.ee/xml/ns/persistence"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="https://jakarta.ee/xml/ns/persistence https://jakarta.ee/xml/ns/persistence/persistence_3_1.xsd"
+        version="3.1"
+>
+
+    <persistence-unit name="persistencecfg">
+        <description>Hibernate Entity Manager</description>
+<!--    <persistence-unit name="persistencecfg" transaction-type="JTA">-->
+<!--        <jta-data-source>jdbc/_mora_ejb_008_connection</jta-data-source>-->
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+
+        <class>com.slmora.learn.common.entity.Department</class>
+        <exclude-unlisted-classes>true</exclude-unlisted-classes>
+
+        <properties>
+<!--            <property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver" />-->
+<!--            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3307/DB_MYDB_03?useUnicode=true&amp;useJDBCCompliantTimezoneShift=true&amp;useLegacyDatetimeCode=false&amp;serverTimezone=UTC" />-->
+<!--            <property name="javax.persistence.jdbc.user" value="root" />-->
+<!--            <property name="javax.persistence.jdbc.password" value="root" />-->
+
+            <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
+<!--            <property name="jakarta.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>-->
+<!--            <property name="jakarta.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>-->
+<!--            <property name="jakarta.persistence.jdbc.url" value="jdbc:mysql://localhost:3307/DB_MYDB_03?useUnicode=true&amp;useJDBCCompliantTimezoneShift=true&amp;useLegacyDatetimeCode=false&amp;serverTimezone=UTC"/>-->
+<!--            <property name="jakarta.persistence.jdbc.url" value="jdbc:mysql://localhost:3307/DB_MYDB_03"/>-->
+            <property name="jakarta.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/demo_db_v001"/>
+            <property name="jakarta.persistence.jdbc.user" value="root"/>
+            <property name="jakarta.persistence.jdbc.password" value="root"/>
+<!--            <property name="jakarta.persistence.schema-generation.database.action" value="create"/>-->
+
+            <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect"/>
+            <property name="hibernate.show_sql" value="true" />
+            <property name="hibernate.format_sql" value="true" />
+            <property name="hibernate.hbm2ddl.auto" value="update" />
+            <property name="hibernate.current_session_context_class" value="thread" />
+
+            <property name="hibernate.connection.provider_class" value="org.hibernate.hikaricp.internal.HikariCPConnectionProvider" />
+            <property name="hibernate.hikari.maximumPoolSize" value="10" />
+            <property name="hibernate.hikari.idleTimeout" value="30000" />
+            <property name="hibernate.hikari.minimumIdle" value="30" />
+
+<!--            <property name="hibernate.connection.driver_class" value="com.mysql.cj.jdbc.Driver"/>-->
+<!--            <property name="hibernate.connection.url" value="jdbc:mysql://localhost:3307/DB_MYDB_03?useUnicode=true&amp;useJDBCCompliantTimezoneShift=true&amp;useLegacyDatetimeCode=false&amp;serverTimezone=UTC"/>-->
+<!--            <property name="hibernate.connection.username" value="root"/>-->
+<!--            <property name="hibernate.connection.password" value="root"/>-->
+
+<!--            <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect"/>-->
+<!--            <property name="hibernate.show_sql" value="true" />-->
+<!--            <property name="hibernate.format_sql" value="true" />-->
+<!--            <property name="hibernate.hbm2ddl.auto" value="update" />-->
+
+
+<!--            <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL8Dialect"/>-->
+<!--            <property name="hibernate.current_session_context_class" value="thread" />-->
+<!--            <property name="hibernate.connection.provider_class" value="org.hibernate.hikaricp.internal.HikariCPConnectionProvider" />-->
+<!--            <property name="hibernate.hikari.maximumPoolSize" value="10" />-->
+<!--            <property name="hibernate.hikari.idleTimeout" value="30000" />-->
+<!--            <property name="hibernate.hikari.minimumIdle" value="30" />-->
+
+            <!-- Enable the second-level cache -->
+<!--            <property name="hibernate.cache.use_second_level_cache" value="true"/>-->
+<!--            <property name="hibernate.cache.use_query_cache" value="true"/>-->
+<!--            <property name="hibernate.cache.region.factory_class" value="org.hibernate.cache.ehcache.EhCacheRegionFactory"/>-->
+        </properties>
+
+    </persistence-unit>
+
+</persistence>

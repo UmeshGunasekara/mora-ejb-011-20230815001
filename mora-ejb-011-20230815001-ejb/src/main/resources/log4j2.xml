@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+ * Created by IntelliJ IDEA.
+ * Language: XML
+ * Property of Umesh Gunasekara
+ * @Author: SLMORA
+ * @DateTime: 8/15/2023 9:55 PM
+ *
+ * This log4j2.xml comes with basic log4j2 configuration for mora-ejb-011-20230815001 Project
+ *
+ * Version      Date            Editor              Note
+ * ======================================================
+ * 1.0			8/15/2023		SLMORA              Initial Code
+ * 1.1          8/15/2023		SLMORA              Get copy from mora-ejb-010-20230815001
+ *
+-->
+<Configuration status="WARN" monitorInterval="30">
+
+    <Properties>
+        <Property name="LOG_PATTERN">%d{'D-'yyyy-MM-dd 'T-'HH:mm:ss.SSS 'Z'Z} [%t] %highlight{%level}{FATAL=bg_red, ERROR=red, WARN=yellow, INFO=green, DEBUG=blue} - %p %m%n</Property>
+        <Property name="LOG_DIR">D:/SLMORAWorkSpace/IntelliJProjects/slmora-ejb/mora-ejb-011-20230815001/logs</Property>
+        <Property name="PROJECT_NAME">mora-ejb-011-20230815001</Property>
+    </Properties>
+
+    <Appenders>
+        Console Appender
+        <Console name="logToConsole" target="SYSTEM_OUT" follow="true">
+            <PatternLayout pattern="${LOG_PATTERN}" />
+        </Console>
+
+        <RollingFile name="debugLog" fileName="${LOG_DIR}/${PROJECT_NAME}-debug.log"
+                     filePattern="${LOG_DIR}/$${date:yyy-MM-dd}/${PROJECT_NAME}-debug.%d{yyyy-MM-dd}-%i.log">
+            <LevelRangeFilter minLevel="DEBUG" maxLevel="DEBUG" onMatch="ACCEPT" onMismatch="DENY"/>
+            <PatternLayout pattern="${LOG_PATTERN}"/>
+            <Policies>
+                <!--                <OnStartupTriggeringPolicy /> a new log file is created every time the JVM starts-->
+                <!--                <TimeBasedTriggeringPolicy /> the log file is rolled based on a date/time pattern-->
+                <SizeBasedTriggeringPolicy size="50 MB" /> <!-- the file is rolled when it reaches a certain size-->
+            </Policies>
+            <DefaultRolloverStrategy max="100"/>
+        </RollingFile>
+
+        <RollingFile name="infoLog" fileName="${LOG_DIR}/${PROJECT_NAME}-info.log"
+                     filePattern="${LOG_DIR}/$${date:yyy-MM-dd}/${PROJECT_NAME}-info.%d{yyyy-MM-dd}-%i.log">
+            <LevelRangeFilter minLevel="INFO" maxLevel="INFO" onMatch="ACCEPT" onMismatch="DENY"/>
+            <PatternLayout pattern="${LOG_PATTERN}"/>
+            <Policies>
+                <SizeBasedTriggeringPolicy size="50 MB" />
+            </Policies>
+            <DefaultRolloverStrategy max="100"/>
+        </RollingFile>
+
+        <RollingFile name="transactionLogs" fileName="${LOG_DIR}/${PROJECT_NAME}-transaction.log"
+                     filePattern="${LOG_DIR}/$${date:yyy-MM-dd}/${PROJECT_NAME}-transaction.%d{yyyy-MM-dd}-%i.log">
+            <MarkerFilter marker="TRANSACTION" onMatch="ACCEPT" onMismatch="DENY"/>
+            <PatternLayout pattern="${LOG_PATTERN}"/>
+            <Policies>
+                <SizeBasedTriggeringPolicy size="50 MB" />
+            </Policies>
+            <DefaultRolloverStrategy max="100"/>
+        </RollingFile>
+
+        <RollingFile name="errorLog" fileName="${LOG_DIR}/${PROJECT_NAME}-error.log"
+                     filePattern="${LOG_DIR}/$${date:yyy-MM-dd}/${PROJECT_NAME}-error.%d{yyyy-MM-dd}-%i.log">
+            <LevelRangeFilter minLevel="ERROR" maxLevel="ERROR" onMatch="ACCEPT" onMismatch="DENY"/>
+            <PatternLayout pattern="${LOG_PATTERN}"/>
+            <Policies>
+                <SizeBasedTriggeringPolicy size="50 MB" />
+            </Policies>
+            <DefaultRolloverStrategy max="100"/>
+        </RollingFile>
+
+        <Async name="Async">
+            <AppenderRef ref="debugLog" />
+            <AppenderRef ref="infoLog" />
+            <AppenderRef ref="errorLog" />
+            <AppenderRef ref="transactionLogs" />
+        </Async>
+    </Appenders>
+
+    <Loggers>
+        <Logger name="com.slmora" additivity="false" >
+            <AppenderRef ref="logToConsole" />
+            <AppenderRef ref="Async" />
+        </Logger>
+        <Root level="DEBUG">
+            <AppenderRef ref="logToConsole" />
+        </Root>
+    </Loggers>
+</Configuration>

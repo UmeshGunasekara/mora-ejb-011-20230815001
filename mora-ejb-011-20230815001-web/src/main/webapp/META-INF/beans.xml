@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ * This beans.xml comes with basic dependency requirements and create for mora-ejb-011-20230815001-web
+ *
+ * @Author: SLMORA
+ * @DateTime: 8/15/2023 9:55 PM
+ * <p>
+ * Version      Date            Editor              Note
+ * =====================================================================================================================
+ * 1.0          8/15/2023        SLMORA              Initial Code
+ *
+ *
+ *
+-->
+<beans
+        xmlns="https://jakarta.ee/xml/ns/jakartaee"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/beans_3_0.xsd"
+        version="3.0"
+        bean-discovery-mode="all"
+>
+
+</beans>

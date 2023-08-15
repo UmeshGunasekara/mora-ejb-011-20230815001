@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ * This application.xml comes with basic dependency requirements and create for mora-ejb-011-20230815001-ear
+ *
+ * @Author: SLMORA
+ * @DateTime: 8/15/2023 9:55 PM
+ * <p>
+ * Version      Date            Editor              Note
+ * =====================================================================================================================
+ * 1.0          8/15/2023        SLMORA              Initial Code
+ *
+ *
+ *
+-->
+<application
+        xmlns="http://java.sun.com/xml/ns/javaee"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/application_6.xsd"
+        version="6"
+>
+
+  <description>mora-ejb-011-20230815001</description>
+  <display-name>mora-ejb-011-20230815001-ear</display-name>
+  <module>
+    <web>
+      <web-uri>mora-ejb-011-20230815001-web-1.0.0.war</web-uri>
+      <context-root>/mora-ejb-011</context-root>
+    </web>
+  </module>
+  <module>
+    <java>lib/mora-ejb-011-20230815001-common-1.0.0.jar</java>
+  </module>
+  <module>
+    <ejb>mora-ejb-011-20230815001-ejb-1.0.0.jar</ejb>
+  </module>
+  <library-directory>lib</library-directory>
+</application>
